@@ -19,7 +19,7 @@ Bash environment variables go in `/etc/profile.d/`.
 
 This bash setup contains commands `p` and `np` which assume you have a `http_proxy` environment variable set in `/etc/profile.d/proxy`.
 
-To do this run the following replacing 'my_proxy' with the proxy you want to use.
+To do this run the following as root replacing 'my_proxy' with the proxy you want to use.
 
 `echo 'export http_proxy=my_proxy:8080' >/etc/profile.d/proxy`
 
