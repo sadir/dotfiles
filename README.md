@@ -7,7 +7,7 @@ To install it, just clone this repository to your home directory in a .bash-conf
 git clone https://github.com/sadir/bash-config.git ~/.bash-config
 ```
 
-Then include the following in your .bashrc file:
+Then include the following in your `~/.bashrc` file:
 
 ```
 if [[ -f ~/.bash-config/bash_morgan ]]; then
@@ -15,12 +15,16 @@ if [[ -f ~/.bash-config/bash_morgan ]]; then
 fi
 ```
 
-Bash environment variables go in `/etc/profile.d/`.
+..and ensure you are sourcing your `~/.bashrc` file from `~/.bash_profile`:
 
-This bash setup contains commands `p` and `np` which assume you have a `http_proxy` environment variable set in `/etc/profile.d/proxy`.
+`source $HOME/.bashrc`
 
-To do this run the following as root replacing 'my_proxy' with the proxy you want to use.
+Bash environment variables go in `/etc/profile.d/`, which may not exist if you are on OSX.
 
-`echo 'export http_proxy=my_proxy:8080' >/etc/profile.d/proxy`
+To create it run: `sudo mkdir /etc/profile.d`
 
-You may need to create the profile.d directory first as root if you are on OSX.
+Then replace your `/etc/profile` with `./etc/profile`.
+
+Next, copy over the contents of `./etc/profile.d/` to that folder, and replace the proxy in `proxy.sh` with yours.
+
+Finally, copy over the contents of `./etc/paths.d/` to `/etc/paths.d/`.
