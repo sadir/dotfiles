@@ -1,0 +1,1 @@
+export CODEROOT=$HOME/code
