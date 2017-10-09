@@ -23,10 +23,20 @@ alias gl='git_pretty_log'
 alias gld='git log -p'
 alias gls='git shortlog -sn'
 alias gst='git status -sb'
-alias gmg=gitMerge
+alias gmgr=gitMergeRuby
+alias gmge=gitMergeElixir
+alias gmgnt=gitMergeNoTests
 
-gitMerge() {
-  git merge --no-ff $1 && rake && git push && git push origin :$1 && git branch -D $1
+gitMergeRuby() {
+  git merge --no-ff $1 && rake && git push && git push origin :$1 && git branch -d $1
+}
+
+gitMergeElixir() {
+  git merge --no-ff $1 && mix test && git push && git push origin :$1 && git branch -d $1
+}
+
+gitMergeNoTests() {
+  git merge --no-ff $1 && git push && git push origin :$1 && git branch -d $1
 }
 
 ## Dev aliases
