@@ -25,6 +25,7 @@ alias gls='git shortlog -sn'
 alias gst='git status -sb'
 alias gmgr=gitMergeRuby
 alias gmge=gitMergeElixir
+alias gmgj=gitMergeJS
 alias gmgnt=gitMergeNoTests
 
 gitMergeRuby() {
@@ -33,6 +34,10 @@ gitMergeRuby() {
 
 gitMergeElixir() {
   git merge --no-ff $1 && mix test && git push && git push origin :$1 && git branch -d $1
+}
+
+gitMergeJS() {
+  git merge --no-ff $1 && builder run test && git push && git push origin :$1 && git branch -d $1
 }
 
 gitMergeNoTests() {
