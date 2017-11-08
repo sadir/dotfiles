@@ -1,6 +1,8 @@
 #!/bin/bash
 
-export PG_HOST=localhost
-export PG_PORT=5432
-export PG_PASSWORD=
-export PG_USER=
+export PGHOST=localhost
+export PGPORT=5432
+export PGPASSWORD=
+export PGUSER=
+export DPGUSER=
+export DPGPASS=

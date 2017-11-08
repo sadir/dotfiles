@@ -57,6 +57,10 @@ alias prp='git pull && rake && git push'
 alias p='source $HOME/.bash-config/proxy on'
 alias np='source $HOME/.bash-config/proxy off'
 
+## Postgres aliases
+alias pgd='source $HOME/.bash-config/postgres docker'
+alias pgl='source $HOME/.bash-config/postgres local'
+
 ## Super lazy-time update functions
 alias up-vim='git-update $HOME/.vim'
 alias up-bash='git-update $HOME/.bash-config'

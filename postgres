@@ -1,0 +1,11 @@
+#! /bin/sh
+
+if [[ "$1" == "docker" ]]; then
+	echo "Setting postgres env variables to use docker container"
+  export PGPORT=54321
+  export PGPASSWORD=$DPGUSER
+  export PGUSER=$DPGPASS
+else
+	echo "Setting postgres env variables to use local install"
+  source /etc/profile.d/postgres.sh
+fi
