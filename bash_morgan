@@ -60,6 +60,8 @@ alias np='source $HOME/.bash-config/proxy off'
 ## Postgres aliases
 alias pgd='source $HOME/.bash-config/postgres docker'
 alias pgl='source $HOME/.bash-config/postgres local'
+alias dbpg='export POSTGRES=1'
+alias dbnpg='unset POSTGRES'
 
 ## Super lazy-time update functions
 alias up-vim='git-update $HOME/.vim'
