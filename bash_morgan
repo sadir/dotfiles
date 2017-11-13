@@ -29,7 +29,7 @@ alias gmge=gitMergeElixir
 alias gmgb=gitMergeBuilder
 alias gmgy=gitMergeYarn
 alias gmgnt=gitMergeNoTests
-alias pr=hub pull-request
+alias pr='hub pull-request'
 
 gitMergeRuby() {
   git merge --no-ff $1 && rake && git push && git push origin :$1 && git branch -d $1
@@ -177,8 +177,7 @@ COMMENT="%s"
 FORMAT="$HASH$_I_$AGE$_I_$AUTHOR$_I_$REFS $COMMENT"
 
 git_pretty_log() {
-  git log --graph --decorate --pretty="tformat:${FORMAT}" $* |
-  less -FXRS
+  git log --graph --decorate --pretty="tformat:${FORMAT}"
 }
 
 # Load Extra Things
