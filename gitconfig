@@ -10,6 +10,7 @@
 	email = morgan.sadr@gmail.com
 	name = Morgan Sadr-Hashemi
 [alias]
+  a = add
   aa = add -A
 	b = blame
   br = branch
@@ -18,5 +19,8 @@
   cl = clean -fd
   co = checkout
   d = diff
+  dc = diff --cached
   l = log --graph --decorate 
-  st = status
+  p = push
+  pf = push -f
+  st = status -sb
