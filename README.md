@@ -17,6 +17,8 @@ Then replace your `~/.bashrc` with `bashrc`.
 
 `source $HOME/.bashrc`
 
+Copy over the bash_aliases file, `cp bash_aliases ~/.bash_aliases`
+
 Bash environment variables go in `/etc/profile.d/`, which won't exist yet. To create it run `sudo mkdir /etc/profile.d`
 
 Then replace your `/etc/profile` with `./etc/profile`.

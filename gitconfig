@@ -1,0 +1,13 @@
+[branch]
+	autosetuprebase = always
+[color]
+	ui = auto
+[push]
+	default = current
+[credential]
+	helper = osxkeychain
+[user]
+	email = morgan.sadr@gmail.com
+	name = Morgan Sadr-Hashemi
+[alias]
+  co = checkout
