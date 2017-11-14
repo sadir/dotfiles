@@ -38,22 +38,6 @@ gitMergeNoTests() {
   git merge --no-ff $1 && git push && git push origin :$1 && git branch -d $1
 }
 
-## Git Log Niceness
-alias gl='git_pretty_log'
-
-_I_=' '
-HASH="%C(green)%h%C(reset)"
-AGE="%C(yellow)%ar%C(reset)"
-AUTHOR="%C(bold blue)%an%C(reset)"
-REFS="%C(bold red)%d%C(reset)"
-COMMENT="%s"
-
-FORMAT="$HASH$_I_$AGE$_I_$AUTHOR$_I_$REFS $COMMENT"
-
-git_pretty_log() {
-  git log --graph --decorate --pretty="tformat:${FORMAT}"
-}
-
 ## Dev aliases
 alias prp='git pull && rake && git push'
 
