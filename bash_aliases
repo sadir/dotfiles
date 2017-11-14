@@ -9,18 +9,15 @@ alias rspec='bundle exec rspec --color'
 
 ## Git aliases
 alias g='git'
-alias gaa='git add -A'
-alias gcaa='git commit -a --amend -C HEAD'
-alias gdw='git diff --word-diff'
-alias gcl='git clean -fd'
 
 alias gl='git_pretty_log'
-alias gst='git status -sb'
+
 alias gmgr=gitMergeRuby
 alias gmge=gitMergeElixir
 alias gmgb=gitMergeBuilder
 alias gmgy=gitMergeYarn
 alias gmgnt=gitMergeNoTests
+
 alias pr='hub pull-request'
 
 gitMergeRuby() {
