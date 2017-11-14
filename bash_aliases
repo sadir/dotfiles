@@ -10,8 +10,6 @@ alias rspec='bundle exec rspec --color'
 ## Git aliases
 alias g='git'
 
-alias gl='git_pretty_log'
-
 alias gmgr=gitMergeRuby
 alias gmge=gitMergeElixir
 alias gmgb=gitMergeBuilder
@@ -41,6 +39,8 @@ gitMergeNoTests() {
 }
 
 ## Git Log Niceness
+alias gl='git_pretty_log'
+
 _I_=' '
 HASH="%C(green)%h%C(reset)"
 AGE="%C(yellow)%ar%C(reset)"
