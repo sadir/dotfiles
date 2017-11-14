@@ -10,7 +10,6 @@ alias rspec='bundle exec rspec --color'
 ## Git aliases
 alias g='git'
 alias gaa='git add -A'
-alias gb='git blame -CCC'
 alias gcaa='git commit -a --amend -C HEAD'
 alias gdw='git diff --word-diff'
 alias gcl='git clean -fd'

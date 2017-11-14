@@ -19,6 +19,8 @@ Then replace your `~/.bashrc` with `bashrc`.
 
 Copy over the bash_aliases file, `cp bash_aliases ~/.bash_aliases`
 
+Copy over the gitconfig file, `cp gitconfig ~/.gitconfig`, then make changes as you see fit (e.g your name and email).
+
 Bash environment variables go in `/etc/profile.d/`, which won't exist yet. To create it run `sudo mkdir /etc/profile.d`
 
 Then replace your `/etc/profile` with `./etc/profile`.
