@@ -9,20 +9,13 @@ alias rspec='bundle exec rspec --color'
 
 ## Git aliases
 alias g='git'
-alias ga='git add'
 alias gaa='git add -A'
 alias gb='git blame -CCC'
-alias gbr='git branch'
-alias gc='git commit'
-alias gcaa='git commit -a --amend -CHEAD'
-alias gd='git diff'
+alias gcaa='git commit -a --amend -C HEAD'
 alias gdw='git diff --word-diff'
 alias gcl='git clean -fd'
-alias gco='git checkout'
 
 alias gl='git_pretty_log'
-alias gld='git log -p'
-alias gls='git shortlog -sn'
 alias gst='git status -sb'
 alias gmgr=gitMergeRuby
 alias gmge=gitMergeElixir
@@ -49,6 +42,20 @@ gitMergeYarn() {
 
 gitMergeNoTests() {
   git merge --no-ff $1 && git push && git push origin :$1 && git branch -d $1
+}
+
+## Git Log Niceness
+_I_=' '
+HASH="%C(green)%h%C(reset)"
+AGE="%C(yellow)%ar%C(reset)"
+AUTHOR="%C(bold blue)%an%C(reset)"
+REFS="%C(bold red)%d%C(reset)"
+COMMENT="%s"
+
+FORMAT="$HASH$_I_$AGE$_I_$AUTHOR$_I_$REFS $COMMENT"
+
+git_pretty_log() {
+  git log --graph --decorate --pretty="tformat:${FORMAT}"
 }
 
 ## Dev aliases
