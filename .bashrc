@@ -1,9 +1,9 @@
-if [[ -f ~/.bash-config/bash_morgan ]]; then
-  source ~/.bash-config/bash_morgan
+if [[ -f ~/.bash_morgan ]]; then
+  source ~/.bash_morgan
 fi
 
-if [ -f ~/.bash-config/bash_aliases ]; then
-  source ~/.bash-config/bash_aliases
+if [ -f ~/.bash_aliases ]; then
+  source ~/.bash_aliases
 fi
 
 . $HOME/.asdf/asdf.sh
