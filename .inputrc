@@ -1,0 +1,50 @@
+set bell-style visible
+set bind-tty-special-chars on
+set blink-matching-paren on
+set byte-oriented off
+set colored-completion-prefix on
+set colored-stats on
+set comment-begin #
+set completion-ignore-case on
+set completion-query-items -1
+set convert-meta off
+set disable-completion off
+set editing-mode vi
+set enable-keypad off
+set expand-tilde off
+set history-preserve-point off
+set history-size -1
+set horizontal-scroll-mode off
+set input-meta on
+set keymap vi
+set mark-directories on
+set mark-modified-lines off
+set mark-symlinked-directories on
+set match-hidden-files on
+set output-meta on
+set page-completions on
+set prefer-visible-bell on
+set print-completions-horizontally off
+set show-all-if-ambiguous on
+set show-all-if-unmodified on
+set show-mode-in-prompt on
+set visible-stats on
+
+# Macros that are convenient for shell interaction
+$if Bash
+# prepare to type a quoted word --
+# insert open and close double quotes
+# and move to just after the open quote
+"\C-x\"": "\"\"\C-b"
+
+# Quote the current or previous word
+"\C-xq": "\eb\"\ef\""
+$endif
+
+# Use the text that has already been typed as the prefix for searching through
+# commands (basically more intelligent Up/Down behavior)
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+
+# Use Alt/Meta + Delete to delete the preceding word
+"\e[3;3~": kill-word

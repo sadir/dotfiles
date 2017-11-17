@@ -1,0 +1,3 @@
+source $HOME/.bashrc
+
+pgd
