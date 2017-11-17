@@ -1,4 +1,4 @@
-for file in ~/.{.bash_morgan, .bash_aliases}; do
+for file in $HOME/.{bash_morgan, bash_aliases, git-completion.sh, git-prompt.sh}; do
     [ -r "$file" ] && source "$file"
 done
 unset file
