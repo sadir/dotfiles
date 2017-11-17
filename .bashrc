@@ -1,16 +1,13 @@
-if [[ -f ~/.bash_morgan ]]; then
-  source ~/.bash_morgan
-fi
-
-if [ -f ~/.bash_aliases ]; then
-  source ~/.bash_aliases
-fi
+for file in ~/.{.bash_morgan, .bash_aliases}; do
+    [ -r "$file" ] && source "$file"
+done
+unset file
 
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
 
 # We add this in to import environment variables in /etc/profile.d/*.sh
 for sh in /etc/profile.d/*.sh ; do
-        [ -r "$sh" ] && . "$sh"
+  [ -r "$sh" ] && . "$sh"
 done
 unset sh
