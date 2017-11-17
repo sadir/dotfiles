@@ -1,15 +1,12 @@
 #! /bin/sh
 
-if [[ ! -f /etc/profile.d/proxy.sh ]]; then
-  echo 'FAILED: /etc/profile.d/proxy does not exist.'
-  echo 'Create the file and ensure is exports http_proxy'
-  echo "For example, run the following command, replacing 'my_proxy:8080' with your proxy:"
-  echo "echo 'export http_proxy=my_proxy:8080' >/etc/profile.d/proxy"
+proxy=$http_proxy
+if [ -z "$var" ]; then
+  echo 'FAILED: proxy is not set'
+  echo 'modify ~/.exports.sh or ~/.extras.sh to set it before running this command'
   return 1
 fi
 
-source /etc/profile.d/proxy.sh
-proxy=$http_proxy
 
 if [[ "$1" == "on" ]]; then
 	echo "Setting proxies to $proxy"
