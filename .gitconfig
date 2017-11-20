@@ -20,7 +20,7 @@
   co = checkout
   d = diff
   dc = diff --cached
-  l = log --graph --decorate 
+  l = log --graph --decorate --pretty=\"tformat:%C(green)%h%C(reset) %C(yellow)%ar%C(reset) %C(bold blue)%an%C(reset) %C(bold red)%d%C(reset) %s\"
   p = push
   pf = push -f
   st = status -sb
