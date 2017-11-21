@@ -42,12 +42,12 @@ gitMergeNoTests() {
 alias prp='git pull && rake && git push'
 
 ## Proxy aliases
-alias p='source $HOME/.bash-config/proxy on'
-alias np='source $HOME/.bash-config/proxy off'
+alias p='source $HOME/.dotfiles/proxy on'
+alias np='source $HOME/.dotfiles/proxy off'
 
 ## Postgres aliases
-alias pgd='source $HOME/.bash-config/postgres docker'
-alias pgl='source $HOME/.bash-config/postgres local'
+alias pgd='source $HOME/.dotfiles/postgres docker'
+alias pgl='source $HOME/.dotfiles/postgres local'
 alias dbpg='export POSTGRES=1'
 alias dbnpg='unset POSTGRES'
 
