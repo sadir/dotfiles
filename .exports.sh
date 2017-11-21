@@ -17,5 +17,3 @@ export DOCKER_PGUSER=
 export DOCKER_PGPASS=
 export http_proxy=
 export RUSTPATH=$HOME/.cargo/bin
-
-pgd
