@@ -75,3 +75,7 @@ alias clean-docker='clean-images && clean-containers'
 alias clean-volumes='docker volume rm $(docker volume ls -qf dangling=true)'
 alias clean-images='docker rmi $(docker images --filter "dangling=true" -q --no-trunc)'
 alias clean-containers='docker rm $(docker ps -qa --no-trunc --filter "status=exited")'
+
+#Javascript aliases
+alias b='builder'
+alias br='builder run test'
