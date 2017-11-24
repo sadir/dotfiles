@@ -67,3 +67,5 @@ rdsDescribeLogFiles() {
 rdsGetLogFile() {
   aws rds download-db-log-file-portion --db-instance-identifier $1 --log-file-name $2 > $CODEROOT/nextdayproperty/$2
 }
+
+alias dc='docker-compose'
