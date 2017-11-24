@@ -1,18 +1,18 @@
 [branch]
-	autosetuprebase = always
+  autosetuprebase = always
 [color]
-	ui = auto
+  ui = auto
 [push]
-	default = current
+  default = current
 [credential]
-	helper = osxkeychain
+  helper = osxkeychain
 [user]
-	email = morgan.sadr@gmail.com
-	name = Morgan Sadr-Hashemi
+  email = morgan.sadr@gmail.com
+  name = Morgan Sadr-Hashemi
 [alias]
   a = add
   aa = add -A
-	b = blame
+  b = blame
   br = branch
   c = commit
   caa = commit -a --amend -C HEAD
@@ -24,3 +24,5 @@
   p = push
   pf = push -f
   st = status -sb
+[core]
+  pager = diff-so-fancy | less --tabs=4 -RFX
