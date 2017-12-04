@@ -15,5 +15,6 @@ brew install tree
 brew install the_silver_searcher
 brew install vim --with-override-system-vi
 brew install diff-so-fancy
+brew install ctags
 
 brew cleanup
