@@ -71,7 +71,7 @@ rdsGetLogFile() {
 ## Docker aliases
 alias dc='docker-compose'
 alias d='docker'
-alias clean-docker='clean-images && clean-containers'
+alias clean-docker='clean-containers && clean-images'
 alias clean-volumes='docker volume rm $(docker volume ls -qf dangling=true)'
 alias clean-images='docker rmi $(docker images --filter "dangling=true" -q --no-trunc)'
 alias clean-containers='docker rm $(docker ps -qa --no-trunc --filter "status=exited")'
