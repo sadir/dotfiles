@@ -55,7 +55,7 @@ let g:ctrlp_show_hidden = 1
 if executable('rg')
   set grepprg=ag\ --nogroup\ --nocolor\ --ignore-case\ --column
   set grepformat=%f:%l:%c:%m,%f:%l:%m
-  let g:ctrlp_user_command = 'rg %s -l --nocolor -g ""'
+  let g:ctrlp_user_command = 'rg --files -g "" %s'
   let g:ctrlp_use_caching = 0
 endif
 highlight Visual cterm=bold ctermbg=Blue ctermfg=NONE

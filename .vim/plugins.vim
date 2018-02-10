@@ -5,9 +5,8 @@ Plug 'vim-airline/vim-airline' " Status bar at the bottom
 
 "Functional"
 Plug 'ajh17/VimCompletesMe' " Tab completion
-Plug 'janko-m/vim-test' " Run tests with ,T
 Plug 'jlanzarotta/bufexplorer' " Switch between open buffers
-Plug 'kien/ctrlp.vim' " Fuzzy search
+Plug 'ctrlpvim/ctrlp.vim' " Fuzzy search
 Plug 'ludovicchabant/vim-gutentags' " Autogenerate ctags
 Plug 'jremmen/vim-ripgrep' " Search through project
 Plug 'scrooloose/nerdcommenter' " Easily comment things out
