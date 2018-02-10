@@ -22,8 +22,8 @@ set t_Co=256
 set writebackup
 
 "# Plugins
-call plug#begin('~/.dotfiles/.vim/plugged')
-source ~/.dotfiles/.vim/plugins.vim
+call plug#begin('~/.vim/plugged')
+source ~/.vim/plugins.vim
 call plug#end()
 
 if $TERM_PROGRAM =~ "iTerm"
