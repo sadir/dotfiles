@@ -19,6 +19,26 @@ alias gmgy=gitMergeYarn
 alias gmgnt=gitMergeNoTests
 
 alias pr='hub pull-request'
+alias pairing_project=prepareProjectForPairing
+alias pairing_with=setPair
+alias no_longer_pairing="rm $COAUTHOR_FILE"
+
+prepareProjectForPairing() {
+  ln -s -f $HOME/.dotfiles/hooks/prepare-commit-msg .git/hooks/prepare-commit-msg
+}
+
+setPair() {
+    echo "{ \"name\": \"$(pairName $1)\", \"email\": \"$(pairEmail $1)\" }" > \
+    $COAUTHOR_FILE
+}
+
+pairName() {
+  cat $HOME/.dotfiles/.pairs.json | jq -r ".name.$1"
+}
+
+pairEmail() {
+  cat $HOME/.dotfiles/.pairs.json | jq -r ".email.$1"
+}
 
 gitMergeRuby() {
   git merge --no-ff $1 && rake && git push && git push origin :$1 && git branch -d $1
