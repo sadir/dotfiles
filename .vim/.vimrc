@@ -1,3 +1,4 @@
+"# Vim options
 set background=dark
 set backupdir=/var/tmp,~/.tmp,.
 set colorcolumn=+1
@@ -20,6 +21,7 @@ set textwidth=80
 set t_Co=256
 set writebackup
 
+"# Plugins
 call plug#begin('~/.dotfiles/.vim/plugged')
 source ~/.dotfiles/.vim/plugins.vim
 call plug#end()
@@ -29,14 +31,40 @@ if $TERM_PROGRAM =~ "iTerm"
   let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
 endif
 
+"# Visual
 colorscheme molokai
 
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
-
+"# Plugin setup and variables
 let mapleader = ","
 
-let g:NERDSpaceDelims = 1
+"## Search
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
+"## NERD tree
+let g:NERDSpaceDelims = 1
+let NERDTreeQuitOnOpen=1
+" Disable netrw's autocmd, since we're ALWAYS using NERDTree
+runtime plugin/netRwPlugin.vim
+augroup FileExplorer
+  au!
+augroup END
+let g:NERDTreeHijackNetrw = 0
+
+"## CtrlP File Finder
+let g:ctrlp_show_hidden = 1
+if executable('rg')
+  set grepprg=ag\ --nogroup\ --nocolor\ --ignore-case\ --column
+  set grepformat=%f:%l:%c:%m,%f:%l:%m
+  let g:ctrlp_user_command = 'rg %s -l --nocolor -g ""'
+  let g:ctrlp_use_caching = 0
+endif
+highlight Visual cterm=bold ctermbg=Blue ctermfg=NONE
+
+"## Fuzzy Search
+let g:rg_binary = 'rg'
+let g:rg_command = g:rg_binary . ' --vimgrep --smart-case'
+
+"# Mappings
 map <silent> <Leader><Leader> :b#<CR>
 nmap <silent> <unique> <Leader>. :BufExplorer<CR>
 nmap <silent> <Leader>m :NERDTreeToggle<CR>
@@ -47,37 +75,3 @@ nmap <silent> <leader>a :TestSuite<CR>
 nmap <silent> <leader>l :TestLast<CR>
 nmap <silent> <leader>g :TestVisit<CR>
 map <leader>rt :!ctags -R .<CR><CR>
-
-
-" ----------------------------------------------
-" Setup NERDTree
-" ----------------------------------------------
-" Make NERDTree close when you open a file from it. Helps recover screen space!
-let NERDTreeQuitOnOpen=1
-
-" Disable netrw's autocmd, since we're ALWAYS using NERDTree
-runtime plugin/netRwPlugin.vim
-augroup FileExplorer
-  au!
-augroup END
-
-let g:NERDTreeHijackNetrw = 0
-
-" ----------------------------------------------
-" Setup CtrlP File Finder
-" ----------------------------------------------
-
-let g:ctrlp_show_hidden = 1
-
-" Use Ag for search if its available on this system
-if executable('rg')
-  set grepprg=ag\ --nogroup\ --nocolor\ --ignore-case\ --column
-  set grepformat=%f:%l:%c:%m,%f:%l:%m
-  let g:ctrlp_user_command = 'rg %s -l --nocolor -g ""'
-  let g:ctrlp_use_caching = 0
-endif
-
-highlight Visual cterm=bold ctermbg=Blue ctermfg=NONE
-
-let g:rg_binary = 'rg'
-let g:rg_command = g:rg_binary . ' --vimgrep --smart-case'
