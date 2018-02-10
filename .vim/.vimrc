@@ -70,23 +70,14 @@ let g:NERDTreeHijackNetrw = 0
 let g:ctrlp_show_hidden = 1
 
 " Use Ag for search if its available on this system
-if executable('ag')
+if executable('rg')
   set grepprg=ag\ --nogroup\ --nocolor\ --ignore-case\ --column
   set grepformat=%f:%l:%c:%m,%f:%l:%m
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  let g:ctrlp_user_command = 'rg %s -l --nocolor -g ""'
   let g:ctrlp_use_caching = 0
 endif
 
 highlight Visual cterm=bold ctermbg=Blue ctermfg=NONE
 
-" ----------------------------------------------
-" Setup Ack.vim to use silver searcher
-" ----------------------------------------------
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep --smart-case'
-endif
-
-cnoreabbrev ag Ack
-cnoreabbrev aG Ack
-cnoreabbrev Ag Ack
-cnoreabbrev AG Ack
+let g:rg_binary = 'rg'
+let g:rg_command = g:rg_binary . ' --vimgrep --smart-case'

@@ -9,7 +9,7 @@ Plug 'janko-m/vim-test' " Run tests with ,T
 Plug 'jlanzarotta/bufexplorer' " Switch between open buffers
 Plug 'kien/ctrlp.vim' " Fuzzy search
 Plug 'ludovicchabant/vim-gutentags' " Autogenerate ctags
-Plug 'mileszs/ack.vim' " Search through project
+Plug 'jremmen/vim-ripgrep' " Search through project
 Plug 'scrooloose/nerdcommenter' " Easily comment things out
 Plug 'scrooloose/nerdtree' " File browser
 Plug 'sheerun/vim-polyglot' " Syntax for loads of languages
