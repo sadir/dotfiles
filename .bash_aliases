@@ -1,4 +1,5 @@
 # Command Aliases
+alias vim='vim -u ~/.vim/.vimrc'
 alias psg='ps -ef|grep '
 
 ## Ruby aliases
