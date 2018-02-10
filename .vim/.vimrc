@@ -64,6 +64,19 @@ highlight Visual cterm=bold ctermbg=Blue ctermfg=NONE
 let g:rg_binary = 'rg'
 let g:rg_command = g:rg_binary . ' --vimgrep --smart-case'
 
+"## Linting and Formatting
+let g:ale_fixers = {
+      \ 'elixir' : ['mix_format'],
+      \ 'go' : ['gofmt'],
+      \ 'javascript': ['prettier-eslint', 'eslint', 'standard'],
+      \ 'json': ['jq'],
+      \ 'ruby': ['rubocop', 'remove_trailing_lines', 'trim_whitespace'],
+      \ 'rust': ['rustfmt'],
+      \ 'terraform': ['tflint'],
+      \ 'typescript': ['tslint'],
+      \}
+let g:ale_fix_on_save = 1
+
 "# Mappings
 map <silent> <Leader><Leader> :b#<CR>
 nmap <silent> <unique> <Leader>. :BufExplorer<CR>
