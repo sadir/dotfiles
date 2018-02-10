@@ -17,7 +17,6 @@ set showmode
 set signcolumn=yes
 set synmaxcol=200
 set tabstop=2
-set textwidth=80
 set t_Co=256
 set writebackup
 

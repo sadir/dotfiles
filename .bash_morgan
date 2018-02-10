@@ -1,3 +1,5 @@
+#! /bin/sh
+
 function seconds_to_time_str {
   local secs="$1"
   printf "%dh %dm %ds" $((${secs}/3600)) $((${secs}%3600/60)) $((${secs}%60)) | grep -o "[1-9].*$"
