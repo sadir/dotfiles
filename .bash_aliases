@@ -82,5 +82,8 @@ alias clean-containers='docker rm $(docker ps -qa --no-trunc --filter "status=ex
 #Javascript aliases
 alias b='builder'
 alias br='builder run test'
-alias y='yarn'
+alias y='yarn --check-files'
 alias ys='yarn start'
+alias ysl=yarnStartLinked
+
+yarnStartLinked() { yarn --check-files && yarn link $1 && yarn start; }
