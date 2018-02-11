@@ -1,7 +1,7 @@
 "# Vim options
 set background=dark
 set backupdir=/var/tmp,~/.tmp,.
-set colorcolumn=+1
+set colorcolumn=80
 set directory=/var/tmp,~/.tmp,.
 set expandtab
 set hidden
