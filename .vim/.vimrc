@@ -49,32 +49,23 @@ augroup FileExplorer
 augroup END
 let g:NERDTreeHijackNetrw = 0
 
+"## Build in :grep command
+if executable('ag')
+  set grepprg=ag\ --nogroup\ --nocolor\ --ignore-case\ --column
+  set grepformat=%f:%l:%c:%m,%f:%l:%m
+endif
+
 "## CtrlP File Finder
 let g:ctrlp_show_hidden = 1
 if executable('rg')
-  set grepprg=ag\ --nogroup\ --nocolor\ --ignore-case\ --column
-  set grepformat=%f:%l:%c:%m,%f:%l:%m
   let g:ctrlp_user_command = 'rg --files -g "" %s'
-  let g:ctrlp_use_caching = 0
+  let g:ctrlp_use_caching = 1
 endif
 highlight Visual cterm=bold ctermbg=Blue ctermfg=NONE
 
 "## Fuzzy Search
 let g:rg_binary = 'rg'
 let g:rg_command = g:rg_binary . ' --vimgrep --smart-case'
-
-"## Linting and Formatting
-let g:ale_fixers = {
-      \ 'elixir' : ['mix_format'],
-      \ 'go' : ['gofmt'],
-      \ 'javascript': ['prettier-eslint', 'eslint', 'standard'],
-      \ 'json': ['jq'],
-      \ 'ruby': ['rubocop', 'remove_trailing_lines', 'trim_whitespace'],
-      \ 'rust': ['rustfmt'],
-      \ 'terraform': ['tflint'],
-      \ 'typescript': ['tslint'],
-      \}
-let g:ale_fix_on_save = 1
 
 "# Mappings
 map <silent> <Leader><Leader> :b#<CR>
