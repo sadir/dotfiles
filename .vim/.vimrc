@@ -67,6 +67,23 @@ highlight Visual cterm=bold ctermbg=Blue ctermfg=NONE
 let g:rg_binary = 'rg'
 let g:rg_command = g:rg_binary . ' --vimgrep --smart-case'
 
+"## Async linting
+call neomake#configure#automake('w')
+let g:neomake_javascript_enabled_makers = ['peslint']
+let g:neomake_javascript_peslint_maker = {
+        \ 'exe': 'prettier-eslint',
+        \ 'args': ['--write', '--eslint-config-path',  '.eslintrc.js'],
+        \ }
+
+"## Autoload files when they change
+set autoread
+autocmd FileChangedShellPost *
+  \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+augroup my_neomake_hooks
+  au!
+  autocmd User NeomakeJobFinished :checktime
+augroup END
+
 "# Mappings
 map <silent> <Leader><Leader> :b#<CR>
 nmap <silent> <unique> <Leader>. :BufExplorer<CR>

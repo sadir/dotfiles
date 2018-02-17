@@ -16,6 +16,7 @@ Plug 'tpope/vim-endwise' " Automatic ends
 Plug 'tpope/vim-repeat' " Repeat commands with .
 Plug 'tpope/vim-sensible' " Sensible defaults
 Plug 'tpope/vim-surround' " Change surrounding quotes / parens easily
+Plug 'neomake/neomake' " asynchronously run programs, like linters.
 
 "Language Specific"
 Plug 'fatih/vim-go' " Golang helpers
