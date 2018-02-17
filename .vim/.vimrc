@@ -74,6 +74,11 @@ let g:neomake_javascript_peslint_maker = {
         \ 'exe': 'prettier-eslint',
         \ 'args': ['--write', '--eslint-config-path',  '.eslintrc.js'],
         \ }
+let g:neomake_elixir_enabled_makers = ['mixf']
+let g:neomake_elixir_mixf_maker = {
+        \ 'exe': 'mix',
+        \ 'args': ['format'],
+        \ }
 
 "## Autoload files when they change
 set autoread
