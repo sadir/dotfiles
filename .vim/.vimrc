@@ -72,7 +72,7 @@ call neomake#configure#automake('w')
 let g:neomake_javascript_enabled_makers = ['peslint']
 let g:neomake_javascript_peslint_maker = {
         \ 'exe': 'prettier-eslint',
-        \ 'args': ['--write', '--eslint-config-path',  '.eslintrc.js'],
+        \ 'args': ['--write', '--single-quote', '--eslint-config-path',  '.eslintrc.js'],
         \ }
 let g:neomake_elixir_enabled_makers = ['mixf']
 let g:neomake_elixir_mixf_maker = {
