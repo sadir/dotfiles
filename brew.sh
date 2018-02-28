@@ -4,6 +4,7 @@ brew update
 brew upgrade
 
 brew install awscli
+brew install bash-completion
 brew install coreutils
 brew install cmake
 brew install ctags
