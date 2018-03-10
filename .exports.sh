@@ -18,3 +18,4 @@ export DOCKER_PGPASS=
 export http_proxy=
 export RUSTPATH=$HOME/.cargo/bin
 export DOTFILES=$HOME/.dotfiles/
+export MIX_QUIET=1
