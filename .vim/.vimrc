@@ -69,12 +69,20 @@ let g:rg_command = g:rg_binary . ' --vimgrep --smart-case'
 
 "## Async linting
 call neomake#configure#automake('w')
+let g:neomake_open_list = 2
 let g:neomake_javascript_enabled_makers = ['peslint']
 let g:neomake_javascript_peslint_maker = {
         \ 'exe': 'prettier-eslint',
         \ 'args': ['--write', '--single-quote', '--eslint-config-path',  '.eslintrc.js'],
         \ }
-let g:neomake_elixir_enabled_makers = ['mixf']
+let g:neomake_elixir_enabled_makers = ['mixf', 'mix']
+let g:neomake_elixir_mix_maker = {
+        \ 'exe': 'mix',
+        \ 'args': ['compile'],
+        \ 'errorformat':
+          \ '** %s %f:%l: %m,'.
+          \ '%Ewarning: %m,%C  %f:%l,%Z'
+        \ }
 let g:neomake_elixir_mixf_maker = {
         \ 'exe': 'mix',
         \ 'args': ['format'],
