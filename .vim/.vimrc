@@ -71,7 +71,7 @@ let g:rg_command = g:rg_binary . ' --vimgrep --smart-case'
 call neomake#configure#automake('w')
 let g:neomake_serialize = 1
 let g:neomake_open_list = 2
-let g:neomake_javascript_enabled_makers = ['peslint']
+let g:neomake_javascript_enabled_makers = ['peslint', 'jshint']
 let g:neomake_javascript_peslint_maker = {
         \ 'exe': 'prettier-eslint',
         \ 'args': ['--write', '--single-quote', '--eslint-config-path',  '.eslintrc.js'],
