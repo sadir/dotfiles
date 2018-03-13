@@ -1,0 +1,8 @@
+{
+  "esversion": 6,
+  "globals": {
+    "MY_GLOBAL": true
+  }
+  "undef": true,
+  "unused": true,
+}
