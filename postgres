@@ -11,6 +11,12 @@ elif [[ "$1" == "prod-read-replica" ]]; then
   export PGHOST=$PROD_RR_PGHOST
   export PGPASSWORD=$PROD_RR_PGPASS
   export PGUSER=$PROD_RR_PGUSER
+elif [[ "$1" == "prod" ]]; then
+	echo "************* Setting postgres env variables to use the prod LIVE DATABASE ***************"
+  export PGPORT=5432
+  export PGHOST=$PROD_PGHOST
+  export PGPASSWORD=$PROD_PGPASS
+  export PGUSER=$PROD_PGUSER
 else
 	echo "Setting postgres env variables to use local install"
   source /etc/profile.d/postgres.sh

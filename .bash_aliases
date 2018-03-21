@@ -46,6 +46,7 @@ alias np='source $HOME/.dotfiles/proxy off'
 
 ## Postgres aliases
 alias pgd='source $HOME/.dotfiles/postgres docker'
+alias pgpl='source $HOME/.dotfiles/postgres prod'
 alias pgprr='source $HOME/.dotfiles/postgres prod-read-replica'
 alias pgl='source $HOME/.dotfiles/postgres local'
 alias dbpg='export POSTGRES=1'
