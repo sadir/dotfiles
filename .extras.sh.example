@@ -1,2 +1,11 @@
 export DOCKER_PGUSER=
 export DOCKER_PGPASS=
+export PROD_RR_PGPASS=
+export PROD_RR_PGUSER=
+export PROD_RR_PGHOST=
+export PROD_PGPASS=
+export PROD_PGUSER=
+export PROD_PGHOST=
+export PROD_PG_JUMP_HOST=
+export PROD_PG_JUMP_HOST_USER=
+export PROD_PG_REMOTE_HOST=

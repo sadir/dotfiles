@@ -52,6 +52,8 @@ alias pgl='source $HOME/.dotfiles/postgres local'
 alias dbpg='export POSTGRES=1'
 alias dbnpg='unset POSTGRES'
 
+alias prod_db_tunnel='ssh -L 5432:$PROD_PG_REMOTE_HOST:5432 $PROD_PG_JUMP_HOST_USER@$PROD_PG_JUMP_HOST'
+
 ## AWS Aliases
 alias rds-instances=rdsInstances
 alias rds-log-files=rdsDescribeLogFiles
