@@ -76,6 +76,11 @@ let g:neomake_javascript_peslint_maker = {
         \ 'exe': 'prettier-eslint',
         \ 'args': ['--write', '--single-quote', '--eslint-config-path',  '.eslintrc.js'],
         \ }
+let g:neomake_typescript_enabled_makers = ['peslint', 'tsc']
+let g:neomake_typescript_peslint_maker = {
+        \ 'exe': 'prettier-eslint',
+        \ 'args': ['--write', '--single-quote', '--eslint-config-path',  '.eslintrc.js'],
+        \ }
 let g:neomake_elixir_enabled_makers = ['mixf', 'mix']
 let g:neomake_elixir_mix_maker = {
         \ 'exe': 'mix',
