@@ -87,3 +87,6 @@ alias ys='yarn start'
 alias ysl=yarnStartLinked
 
 yarnStartLinked() { yarn --check-files && yarn link $1 && yarn start; }
+
+#Elixir aliases
+alias exup='git pull && mix deps.get && make migrate && mix test'
