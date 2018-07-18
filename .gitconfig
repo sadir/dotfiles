@@ -44,3 +44,15 @@
   enabled = true
 [merge]
   conflictstyle = diff3
+[colleagues "ms"]
+	name = Morgan Sadr-Hashemi
+	email = morgan.sadr@gmail.com
+[colleagues "dk"]
+	name = Deividas Karžinauskas
+	email = deividas.karzinauskas@gmail.com
+[colleagues "es"]
+	name = Ed Saunders
+	email = sanders.ed@gmail.com
+[colleagues "tb"]
+	name = Tom Bowden
+	email = tom.bowden@nested.com

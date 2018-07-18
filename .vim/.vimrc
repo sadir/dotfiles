@@ -74,12 +74,12 @@ let g:neomake_open_list = 2
 let g:neomake_javascript_enabled_makers = ['peslint', 'jshint']
 let g:neomake_javascript_peslint_maker = {
         \ 'exe': 'prettier-eslint',
-        \ 'args': ['--write', '--single-quote', '--eslint-config-path',  '.eslintrc.js'],
+        \ 'args': ['--write', '--eslint-config-path',  '.eslintrc.js'],
         \ }
-let g:neomake_typescript_enabled_makers = ['peslint', 'tsc']
-let g:neomake_typescript_peslint_maker = {
-        \ 'exe': 'prettier-eslint',
-        \ 'args': ['--write', '--single-quote', '--eslint-config-path',  '.eslintrc.js'],
+let g:neomake_typescript_enabled_makers = ['tslint', 'tsc']
+let g:neomake_typescript_tslint_maker = {
+        \ 'exe': 'tslint',
+        \ 'args': ['--fix'],
         \ }
 let g:neomake_elixir_enabled_makers = ['mixf', 'mix']
 let g:neomake_elixir_mix_maker = {
