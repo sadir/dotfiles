@@ -71,10 +71,14 @@ let g:rg_command = g:rg_binary . ' --vimgrep --smart-case'
 call neomake#configure#automake('w')
 let g:neomake_serialize = 1
 let g:neomake_open_list = 2
-let g:neomake_javascript_enabled_makers = ['peslint', 'jshint']
-let g:neomake_javascript_peslint_maker = {
-        \ 'exe': 'prettier-eslint',
-        \ 'args': ['--write', '--eslint-config-path',  '.eslintrc.js'],
+let g:neomake_javascript_enabled_makers = ['eslint', 'prettier', 'jshint']
+let g:neomake_javascript_eslint_maker = {
+        \ 'exe': 'eslint',
+        \ 'args': ['--fix'],
+        \ }
+let g:neomake_javascript_prettier_maker = {
+        \ 'exe': 'prettier',
+        \ 'args': ['--write'],
         \ }
 let g:neomake_typescript_enabled_makers = ['tslint', 'tsc']
 let g:neomake_typescript_tslint_maker = {
