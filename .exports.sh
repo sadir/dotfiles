@@ -1,21 +1,23 @@
 #! /bin/bash
 
-export CODEROOT=$HOME/code
-export EDITOR=vim
-export ASDFROOT=$HOME/.asdf
-export ASDFINSTALLS=$HOME/.asdf/installs
-export GOPATH=$HOME/code/go
 GOV=$(asdf current golang | sed  's/ (set by .*)//g')
-export GOROOT=$ASDFINSTALLS/golang/$GOV/go/
-export NODEV=$(asdf current nodejs | sed  's/ (set by .*)//g')
-export NODEROOT=$ASDFINSTALLS/nodejs/$NODEV
-export PGHOST=localhost
-export PGPORT=5432
-export PGPASSWORD=
-export PGUSER=$USER
-export DOCKER_PGUSER=
+
+export ASDFINSTALLS=$HOME/.asdf/installs
+export ASDFROOT=$HOME/.asdf
+export CODEROOT=$HOME/code
 export DOCKER_PGPASS=
-export http_proxy=
-export RUSTPATH=$HOME/.cargo/bin
+export DOCKER_PGUSER=
 export DOTFILES=$HOME/.dotfiles/
+export EDITOR=vim
+export GOPATH=$HOME/code/go
+export GOROOT=$ASDFINSTALLS/golang/$GOV/go/
 export MIX_QUIET=1
+export NODEROOT=$ASDFINSTALLS/nodejs/$NODEV
+export NODEV=$(asdf current nodejs | sed  's/ (set by .*)//g')
+export PGHOST=localhost
+export PGPASSWORD=
+export PGPORT=5432
+export PGUSER=$USER
+export PYTHONPATH=.
+export RUSTPATH=$HOME/.cargo/bin
+export http_proxy=
