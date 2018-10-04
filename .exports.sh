@@ -9,6 +9,7 @@ export DOCKER_PGPASS=
 export DOCKER_PGUSER=
 export DOTFILES=$HOME/.dotfiles/
 export EDITOR=vim
+export ERL_AFLAGS="-kernel shell_history enabled"
 export GOPATH=$HOME/code/go
 export GOROOT=$ASDFINSTALLS/golang/$GOV/go/
 export MIX_QUIET=1
