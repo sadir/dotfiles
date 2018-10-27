@@ -1,3 +1,7 @@
 tags
 tags.lock
 tags.temp
+.DS_Store
+._.DS_Store
+**/.DS_Store
+**/._.DS_Store
