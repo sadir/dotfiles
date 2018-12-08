@@ -71,6 +71,7 @@ let g:rg_command = g:rg_binary . ' --vimgrep --smart-case'
 call neomake#configure#automake('w')
 let g:neomake_serialize = 1
 let g:neomake_open_list = 2
+
 let g:neomake_javascript_enabled_makers = ['eslint', 'prettier']
 let g:neomake_javascript_eslint_maker = {
         \ 'exe': 'eslint',
@@ -80,11 +81,13 @@ let g:neomake_javascript_prettier_maker = {
         \ 'exe': 'prettier',
         \ 'args': ['--write'],
         \ }
+
 let g:neomake_typescript_enabled_makers = ['tslint', 'tsc']
 let g:neomake_typescript_tslint_maker = {
         \ 'exe': 'tslint',
         \ 'args': ['--fix'],
         \ }
+
 let g:neomake_elixir_enabled_makers = ['mixf', 'mix']
 let g:neomake_elixir_mix_maker = {
         \ 'exe': 'mix',
@@ -96,6 +99,15 @@ let g:neomake_elixir_mix_maker = {
 let g:neomake_elixir_mixf_maker = {
         \ 'exe': 'mix',
         \ 'args': ['format'],
+        \ }
+
+let g:neomake_go_enabled_makers = ['gofmt', 'vet']
+let g:neomake_go_gofmt_maker = {
+        \ 'args': ['-w', '-e', '-s'],
+        \ }
+let g:neomake_go_vet_maker = {
+        \ 'exe': 'go',
+        \ 'args': ['vet', '-source', '-all'],
         \ }
 
 "## Autoload files when they change
