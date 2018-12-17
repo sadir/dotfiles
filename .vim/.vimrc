@@ -96,6 +96,7 @@ let g:neomake_elixir_mix_maker = {
           \ '** %s %f:%l: %m,'.
           \ '%Ewarning: %m,%C  %f:%l,%Z'
         \ }
+let $MIX_QUIET=1
 let g:neomake_elixir_mixf_maker = {
         \ 'exe': 'mix',
         \ 'args': ['format'],

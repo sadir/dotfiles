@@ -12,7 +12,6 @@ export EDITOR=vim
 export ERL_AFLAGS="-kernel shell_history enabled"
 export GOPATH=$HOME/code/go
 export GOROOT=$ASDFINSTALLS/golang/$GOV/go/
-export MIX_QUIET=1
 export NODEV=$(asdf current nodejs | sed  's/ (set by .*)//g')
 export NODEROOT=$ASDFINSTALLS/nodejs/$NODEV
 export PGHOST=localhost
