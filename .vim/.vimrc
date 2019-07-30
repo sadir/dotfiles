@@ -88,7 +88,7 @@ let g:neomake_typescript_tslint_maker = {
         \ 'args': ['--fix'],
         \ }
 
-let g:neomake_elixir_enabled_makers = ['mixf', 'mix']
+let g:neomake_elixir_enabled_makers = ['mixf', 'mix', 'credo']
 let g:neomake_elixir_mix_maker = {
         \ 'exe': 'mix',
         \ 'args': ['compile'],
@@ -100,6 +100,10 @@ let $MIX_QUIET=1
 let g:neomake_elixir_mixf_maker = {
         \ 'exe': 'mix',
         \ 'args': ['format'],
+        \ }
+let g:neomake_elixir_credo_maker = {
+        \ 'exe': 'mix',
+        \ 'args': ['credo'],
         \ }
 
 let g:neomake_go_enabled_makers = ['gofmt', 'vet']
