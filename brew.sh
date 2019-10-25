@@ -4,6 +4,8 @@ brew update
 brew upgrade
 
 brew install awscli
+brew install autoconf
+brew install automake
 brew install bash-completion
 brew install coreutils
 brew install cmake
@@ -13,6 +15,7 @@ brew install getsentry/tools/sentry-cli
 brew install git
 brew install hub
 brew install jq
+brew install libtool
 brew install moreutil
 brew install postgresql
 brew install ripgrep
