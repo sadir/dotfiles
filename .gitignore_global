@@ -5,3 +5,4 @@ tags.temp
 ._.DS_Store
 **/.DS_Store
 **/._.DS_Store
+.*@neomake*
