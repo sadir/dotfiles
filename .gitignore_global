@@ -6,3 +6,4 @@ tags.temp
 **/.DS_Store
 **/._.DS_Store
 .*@neomake*
+.terraform.lock.hcl
