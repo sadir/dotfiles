@@ -42,7 +42,5 @@
   whitespace = red reverse
 [rerere]
   enabled = true
-[merge]
-  conflictstyle = diff3
 [pull]
 	ff = only
