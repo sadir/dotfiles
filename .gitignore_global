@@ -7,3 +7,5 @@ tags.temp
 **/._.DS_Store
 .*@neomake*
 .terraform.lock.hcl
+.bundle
+vendor
