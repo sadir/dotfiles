@@ -21,6 +21,6 @@ brew install postgresql
 brew install ripgrep
 brew install tree
 brew install the_silver_searcher
-brew install vim --with-override-system-vi
+brew install vim
 
 brew cleanup

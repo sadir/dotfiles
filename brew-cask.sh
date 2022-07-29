@@ -1,2 +1,2 @@
-brew cask install rectangle
-brew cask install google-cloud-sdk
+brew install --cask rectangle
+brew install --cask google-cloud-sdk
