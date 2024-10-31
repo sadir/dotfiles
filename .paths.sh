@@ -1,1 +1,1 @@
-export PATH="/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin/:$NODEROOT/.npm/bin/:./node_modules/.bin:$RUSTPATH:$GOPATH/bin:$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+export PATH="/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin/:$NODEROOT/.npm/bin/:./node_modules/.bin:/bin:$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:/opt/homebrew/bin"
