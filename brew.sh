@@ -17,6 +17,7 @@ brew install hub
 brew install jq
 brew install libtool
 brew install moreutil
+brew install pipx
 brew install postgresql
 brew install ripgrep
 brew install tree
