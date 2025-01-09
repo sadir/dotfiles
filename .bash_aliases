@@ -18,7 +18,7 @@ alias gmgb=gitMergeBuilder
 alias gmgy=gitMergeYarn
 alias gmgnt=gitMergeNoTests
 
-alias pr='hub pull-request'
+alias pr='hub pull-request --main'
 
 gitMergeRuby() {
   git merge --no-ff $1 && rake && git push && git push origin :$1 && git branch -d $1
