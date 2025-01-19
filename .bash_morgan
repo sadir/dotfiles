@@ -124,3 +124,6 @@ __git_complete g __git_main
 # Source python virtual envs if available
 [ -f .venv/bin/activate ] && source .venv/bin/activate
 
+if [ -n "${GHOSTTY_RESOURCES_DIR}" ]; then
+    builtin source "${GHOSTTY_RESOURCES_DIR}/shell-integration/bash/ghostty.bash"
+fi
