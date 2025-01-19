@@ -3,7 +3,6 @@
 brew update
 brew upgrade
 
-brew install awscli
 brew install autoconf
 brew install automake
 brew install bash-completion
@@ -21,7 +20,6 @@ brew install pipx
 brew install postgresql
 brew install ripgrep
 brew install tree
-brew install the_silver_searcher
 brew install vim
 
 brew cleanup

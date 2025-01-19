@@ -20,7 +20,3 @@ if ! xcode-select --print-path &> /dev/null; then
 fi
 ./brew.sh
 ./brew-cask.sh
-# Type `git open` to open the GitHub page or website for a repository.
-npm install -g git-open
-sh .osx
-./symlink-setup.sh
