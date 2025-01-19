@@ -5,6 +5,7 @@ brew upgrade
 
 brew install autoconf
 brew install automake
+brew install bash
 brew install bash-completion
 brew install coreutils
 brew install cmake
