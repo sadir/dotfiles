@@ -4,6 +4,7 @@
   ui = true
 [push]
   default = current
+	autoSetupRemote = true
 [credential]
   helper = osxkeychain
 [user]
