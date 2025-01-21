@@ -6,7 +6,7 @@ alias psg='ps -ef|grep '
 ## Git aliases
 alias g='git'
 
-alias pr='hub pull-request --main'
+alias pr='hub pull-request --base main'
 
 ## Docker aliases
 alias dc='docker-compose'
