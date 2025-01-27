@@ -4,4 +4,5 @@ export PATH="$PATH:/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/
 :/bin\
 :/Applications/Visual Studio Code.app/Contents/Resources/app/bin\
 :/opt/homebrew/bin\
-:$HOME/.local/bin"
+:$HOME/.local/bin\
+:$PYENV_ROOT/bin"

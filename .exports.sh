@@ -10,3 +10,4 @@ export NODEV=$(asdf current nodejs | sed  's/nodejs          \(.*\)          .*/
 export NODEROOT=$ASDFINSTALLS/nodejs/$NODEV
 export XDG_CONFIG_HOME=$DOTFILES
 export BASH_SILENCE_DEPRECATION_WARNING=1
+export PYENV_ROOT="$HOME/.pyenv"
