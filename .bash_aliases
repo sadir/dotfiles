@@ -5,6 +5,7 @@ alias psg='ps -ef|grep '
 
 ## Git aliases
 alias g='git'
+alias gclean='git branch | grep -v "staging\|main\|master" | xargs git branch -D'
 
 alias pr='hub pull-request --base main'
 
