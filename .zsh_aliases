@@ -1,0 +1,37 @@
+# Command Aliases
+alias vim='vim -u ~/.vim/.vimrc'
+alias tvim='vim -u ~/.vim/test/.vimrc'
+alias psg='ps -ef|grep '
+
+# Git aliases
+alias g='git'
+
+alias pr='hub pull-request --base main'
+
+# Docker aliases
+alias dc='docker-compose'
+alias d='docker'
+alias clean-docker='clean-containers && clean-images'
+alias clean-volumes='docker volume rm $(docker volume ls -qf dangling=true)'
+alias clean-images='docker rmi $(docker images --filter "dangling=true" -q --no-trunc)'
+alias clean-containers='docker rm $(docker ps -qa --no-trunc --filter "status=exited")'
+
+alias cl='claude --dangerously-skip-permissions --model claude-opus-4-1-20250805'
+
+# Zsh-specific aliases
+alias history='fc -l 1'  # Show full history
+alias h='history'
+alias reload='source ~/.zshrc'
+alias zshconfig='$EDITOR ~/.zshrc'
+alias zshaliases='$EDITOR ~/.zsh_aliases'
+
+# Directory navigation (using zsh's auto_cd these become even more convenient)
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+
+# Enhanced ls aliases with color
+alias ls='ls -G'
+alias ll='ls -lah'
+alias la='ls -A'
+alias l='ls -CF'

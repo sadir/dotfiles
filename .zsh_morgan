@@ -1,0 +1,190 @@
+#!/usr/bin/env zsh
+
+# Helper functions
+function seconds_to_time_str {
+  local secs="$1"
+  printf "%dh %dm %ds" $((${secs}/3600)) $((${secs}%3600/60)) $((${secs}%60)) | grep -o "[1-9].*$"
+}
+
+function seconds_to_minutes {
+  local secs="$1"
+  echo "$((${secs}/60))"
+}
+
+# Color definitions for zsh (using %F{color} syntax)
+autoload -U colors && colors
+
+# Git helper functions
+function git_working_changed {
+  git diff --quiet 2> /dev/null
+  if [[ $? == 0 ]]; then return 1; else return 0; fi
+}
+
+function git_staging_changed {
+  git diff --cached --quiet 2> /dev/null
+  if [[ $? == 0 ]]; then return 1; else return 0; fi
+}
+
+function git_changed {
+  git_working_changed || git_staging_changed
+}
+
+function git_seconds_since_commit {
+  local now=$(date +%s)
+  local last_commit=$(git log --pretty=format:'%at' -1 2>/dev/null)
+  if [[ -z "$last_commit" ]]; then
+    echo "0"
+  else
+    local seconds=$((now-last_commit))
+    echo $seconds
+  fi
+}
+
+function git_mins_since_commit {
+  echo "$(seconds_to_minutes $(git_seconds_since_commit))"
+}
+
+# Setup vcs_info for git integration
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' unstagedstr '*'
+zstyle ':vcs_info:*' stagedstr '+'
+zstyle ':vcs_info:git:*' formats '%b%u%c'
+zstyle ':vcs_info:git:*' actionformats '%b|%a%u%c'
+
+# Custom precmd function to update vcs_info and set colors
+function precmd {
+  vcs_info
+  
+  # Update terminal title with current directory
+  print -Pn "\e]0;%~\a"
+  
+  # Set git prompt color based on status
+  if [[ -n ${vcs_info_msg_0_} ]]; then
+    if git_changed; then
+      local minutes=$(git_mins_since_commit)
+      if [[ $minutes -gt 30 ]]; then
+        git_prompt_color="%F{red}"
+      elif [[ $minutes -gt 15 ]]; then
+        git_prompt_color="%F{yellow}"
+      else
+        git_prompt_color="%F{green}"
+      fi
+    else
+      git_prompt_color="%F{blue}"
+    fi
+  fi
+}
+
+# Setup prompt
+setopt PROMPT_SUBST
+
+# User color (red for root, green for normal user)
+if [[ $UID -eq 0 ]]; then
+  user_color="%F{red}"
+else
+  user_color="%F{green}"
+fi
+
+# Build the prompt
+# Format: user@host:dir(git_branch)-> 
+PROMPT='${user_color}%B%n%b%f@%F{yellow}%B%m%b%f:%F{magenta}%B%1~%b%f${vcs_info_msg_0_:+${git_prompt_color}%B(${vcs_info_msg_0_})%b%f}-> '
+
+# Right prompt shows full path (optional, remove if you don't want it)
+# RPROMPT='%F{240}%~%f'
+
+# History configuration
+HISTFILE=~/.zsh_history
+HISTSIZE=100000
+SAVEHIST=100000
+
+# History options
+setopt APPEND_HISTORY          # Append to history, don't overwrite
+setopt INC_APPEND_HISTORY      # Write to history immediately
+setopt SHARE_HISTORY           # Share history between sessions
+setopt HIST_IGNORE_DUPS        # Don't record duplicate commands
+setopt HIST_IGNORE_ALL_DUPS    # Remove older duplicate commands
+setopt HIST_REDUCE_BLANKS      # Remove superfluous blanks
+setopt HIST_IGNORE_SPACE       # Don't record commands starting with space
+setopt HIST_VERIFY             # Show command with history expansion before running
+setopt EXTENDED_HISTORY        # Record timestamp in history
+
+# Don't record some commands
+HISTORY_IGNORE="(ls|bg|fg|pwd|exit|cd|cd ..|cd ../|clear)"
+
+# Vi mode configuration
+bindkey -v
+export KEYTIMEOUT=1
+
+# Show vi mode in prompt
+function zle-keymap-select {
+  if [[ ${KEYMAP} == vicmd ]] || [[ $1 = 'block' ]]; then
+    echo -ne '\e[1 q'  # Block cursor for normal mode
+  elif [[ ${KEYMAP} == main ]] || [[ ${KEYMAP} == viins ]] || [[ ${KEYMAP} = '' ]] || [[ $1 = 'beam' ]]; then
+    echo -ne '\e[5 q'  # Beam cursor for insert mode
+  fi
+}
+zle -N zle-keymap-select
+
+# Initialize cursor as beam (insert mode)
+function zle-line-init {
+  echo -ne '\e[5 q'
+}
+zle -N zle-line-init
+
+# Key bindings
+# History search (up/down arrows)
+bindkey '^[[A' history-beginning-search-backward
+bindkey '^[[B' history-beginning-search-forward
+bindkey '^P' history-beginning-search-backward  # Ctrl+P
+bindkey '^N' history-beginning-search-forward   # Ctrl+N
+
+# In vi mode, use j/k for history in command mode
+bindkey -M vicmd 'k' history-beginning-search-backward
+bindkey -M vicmd 'j' history-beginning-search-forward
+
+# Common shortcuts that work in insert mode
+bindkey '^R' history-incremental-search-backward  # Ctrl+R for reverse search
+bindkey '^A' beginning-of-line                    # Ctrl+A
+bindkey '^E' end-of-line                          # Ctrl+E
+bindkey '^K' kill-line                            # Ctrl+K
+bindkey '^U' kill-whole-line                      # Ctrl+U
+bindkey '^W' backward-kill-word                   # Ctrl+W
+bindkey '^Y' yank                                 # Ctrl+Y (paste)
+
+# Fix backspace and delete keys in vi mode
+bindkey '^?' backward-delete-char
+bindkey '^H' backward-delete-char
+bindkey '^[[3~' delete-char
+
+# Completion settings
+zstyle ':completion:*' menu select                          # Menu selection
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'        # Case insensitive
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}      # Use LS_COLORS
+zstyle ':completion:*' group-name ''                       # Group results
+zstyle ':completion:*:descriptions' format '%B%F{yellow}%d%f%b'
+zstyle ':completion:*:warnings' format '%B%F{red}No matches%f%b'
+
+# Better completion for kill/killall
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
+zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,cmd'
+
+# Git alias completion (for 'g' alias)
+compdef g=git
+
+# Shell options
+setopt AUTO_CD                 # cd into directory by typing its name
+setopt AUTO_PUSHD              # Make cd push old directory onto stack
+setopt PUSHD_IGNORE_DUPS       # Don't push duplicates
+setopt PUSHD_SILENT            # Don't print stack after pushd/popd
+setopt CORRECT                 # Spell correction for commands
+setopt CORRECT_ALL             # Spell correction for all arguments
+setopt NO_BEEP                 # No beeping
+setopt COMPLETE_IN_WORD        # Complete from cursor position
+setopt INTERACTIVE_COMMENTS    # Allow comments in interactive shell
+setopt MULTIOS                 # Multiple redirections
+setopt NO_HUP                  # Don't kill background jobs on exit
+setopt NO_FLOW_CONTROL         # Disable Ctrl-S/Ctrl-Q
+setopt RM_STAR_WAIT           # Wait before rm * confirmation
+setopt EXTENDED_GLOB          # Extended globbing patterns
