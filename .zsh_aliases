@@ -11,6 +11,12 @@ alias pr='hub pull-request --base main'
 # Docker aliases
 alias dc='docker-compose'
 alias d='docker'
+
+# Terraform alias
+alias tf='terraform'
+
+# pnpm alias
+alias p='pnpm'
 alias clean-docker='clean-containers && clean-images'
 alias clean-volumes='docker volume rm $(docker volume ls -qf dangling=true)'
 alias clean-images='docker rmi $(docker images --filter "dangling=true" -q --no-trunc)'
