@@ -41,3 +41,6 @@ alias ls='ls -G'
 alias ll='ls -lah'
 alias la='ls -A'
 alias l='ls -CF'
+
+alias dcd='HERE=$(pwd) && cd $HERE/apps/web && docker-compose -f docker-compose.dev.yml down && cd $HERE'
+alias dcu='HERE=$(pwd) && cd $HERE/apps/web && docker-compose -f docker-compose.dev.yml up -d && cd $HERE'
