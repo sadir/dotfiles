@@ -10,15 +10,16 @@ alias pr='hub pull-request --base main'
 
 # Fetch, rebase current branch, checkout main, pull, and merge branch
 gmerge() {
-  if [ -z "$1" ]; then
-    echo "Usage: gmerge <branch-name>"
+  local branch=$(git branch --show-current)
+  if [ -z "$branch" ]; then
+    echo "Error: Not on a git branch"
     return 1
   fi
   git fetch && \
   git rebase origin/main && \
   git checkout main && \
   git pull && \
-  git merge --no-ff "$1"
+  git merge --no-ff "$branch"
 }
 
 ## Docker aliases
