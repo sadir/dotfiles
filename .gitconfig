@@ -26,6 +26,7 @@
   p = push
   pf = push -f --force-with-lease
   st = status -sb
+  mg = merge --no-ff
 [core]
   pager = diff-so-fancy | less --tabs=4 -RFX
   excludesFile = ~/.gitignore_global
