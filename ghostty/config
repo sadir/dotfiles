@@ -7,3 +7,4 @@ working-directory = /Users/morgansadr-hashemi/code/linchpin/monorepo
 quit-after-last-window-closed = true
 macos-icon = paper
 auto-update = download
+scrollback-limit = 10000000
