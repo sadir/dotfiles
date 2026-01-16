@@ -5,3 +5,5 @@ for file in $HOME/.{git-completion.sh,git-prompt.sh,exports.sh,extras.sh,bash_mo
     [ -r "$file" ] && source "$file"
 done
 unset file
+
+. "$HOME/.posthog/env"
