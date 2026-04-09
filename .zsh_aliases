@@ -22,6 +22,8 @@ gmerge() {
   git merge --no-ff "$branch"
 }
 
+alias gstats='g stats | sort | uniq -c'
+
 # Docker aliases
 alias dc='docker-compose'
 alias d='docker'
@@ -58,3 +60,4 @@ alias l='ls -CF'
 
 alias dcd='HERE=$(pwd) && cd $HERE/apps/web && docker-compose -f docker-compose.dev.yml down && cd $HERE'
 alias dcu='HERE=$(pwd) && cd $HERE/apps/web && docker-compose -f docker-compose.dev.yml up -d && cd $HERE'
+alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222 --user-data-dir="$HOME/.chrome-debug"'
