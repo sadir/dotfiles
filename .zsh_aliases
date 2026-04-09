@@ -22,7 +22,8 @@ gmerge() {
   git merge --no-ff "$branch"
 }
 
-alias gstats='g stats | sort | uniq -c'
+alias gstats='g stats | sort | uniq -c | awk "{printf \"%s %s\n\", \$2, \$1}"'
+alias gstatsby='git log --format="%ad %aN" --date=format:"%Y-%m" | sort | uniq -c | awk "{printf \"%s %s %s\n\", \$2, \$3, \$1}"'
 
 # Docker aliases
 alias dc='docker-compose'
